@@ -23,8 +23,8 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
     {addQueryPrefix: true, encodeValuesOnly: true}
   );
 
-  const cmsUrl = process.env.CMS_URL_LOCAL;
-  if (!cmsUrl) throw new Error("CMS_URL_LOCAL not set in environment");
+  const cmsUrl = process.env.NODE_ENV === "development" ? process.env.CMS_URL_LOCAL : process.env.CMS_URL_PROD;
+  if (!cmsUrl) throw new Error(`CMS_URL for ${process.env.NODE_ENV} not set in environment`);
 
   const resp = await fetch(`${cmsUrl}/api/pages${query}`, {
     method: "GET",
