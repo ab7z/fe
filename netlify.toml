@@ -1,8 +1,8 @@
-[build.production]
+[context.production]
 CMS_URL = "https://cms.bernstein.dev"
 
-[build.dev]
+[context.dev]
 CMS_URL = "https://cms-dev.bernstein.dev"
 
-[build.internal]
+[context.internal]
 CMS_URL = "https://cms-internal.bernstein.dev"
