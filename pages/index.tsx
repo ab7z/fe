@@ -26,6 +26,7 @@ export default function Home({ cms }: InferGetStaticPropsType<typeof getStaticPr
     <>
       <main className={`${styles.main} ${inter.className}`}>
         <h1>hello world</h1>
+        <p>I am the dev branch</p>
         <a href={ cms.url }>{ cms.url }</a>
       </main>
     </>
