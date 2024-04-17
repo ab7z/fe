@@ -1,0 +1,6 @@
+[build.production]
+DEMO = "hi there"
+echo $DEMO && pnpm build
+
+[[plugins]]
+package = "@netlify/plugin-nextjs"

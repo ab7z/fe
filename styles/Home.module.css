@@ -3,7 +3,19 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 6rem;
+    padding: 2rem;
     min-height: 100vh;
+    gap: 2rem;
+}
+
+.container {
+    width: 100%;
+    text-align: justify;
+}
+
+@media (min-width: 1024px) {
+    .container {
+        width: 80%;
+    }
 }
 
