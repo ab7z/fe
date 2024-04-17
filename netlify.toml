@@ -1,6 +1,8 @@
 [build.production]
-DEMO = "hi there"
-echo $DEMO && pnpm build
+CMS_URL = "https://cms.bernstein.dev"
 
-[[plugins]]
-package = "@netlify/plugin-nextjs"
+[build.dev]
+CMS_URL = "https://cms-dev.bernstein.dev"
+
+[build.internal]
+CMS_URL = "https://cms-internal.bernstein.dev"
