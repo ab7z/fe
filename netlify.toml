@@ -4,5 +4,5 @@ CMS_URL = "https://cms.bernstein.dev"
 [context.dev.environment]
 CMS_URL = "https://cms-dev.bernstein.dev"
 
-[context.staging.environment]
-CMS_URL = "https://cms-staging.bernstein.dev"
+[context.internal.environment]
+CMS_URL = "https://cms-internal.bernstein.dev"
