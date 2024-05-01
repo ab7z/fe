@@ -16,7 +16,7 @@ export const getStaticProps = (async () => {
     }
   }, {addQueryPrefix: true})
 
-  const resp = await fetch(`${cmsURL}/pages${query}`, {
+  const resp = await fetch(`${cmsURL}/api/pages${query}`, {
     method: "GET",
     headers: new Headers({"Accept": "application/json"})
   })
