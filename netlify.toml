@@ -1,8 +1,8 @@
 [context.production.environment]
-CMS_URL = "https://cms.bernstein.dev"
+CMS_URL_PROD = "https://cms.bernstein.dev"
 
 [context.dev.environment]
-CMS_URL = "https://cms-dev.bernstein.dev"
+CMS_URL_PROD = "https://cms-dev.bernstein.dev"
 
 [context.internal.environment]
-CMS_URL = "https://cms-internal.bernstein.dev"
+CMS_URL_PROD = "https://cms-internal.bernstein.dev"
