@@ -17,8 +17,7 @@ echo "--------------------------------------------"
 if ! docker service create \
   --name fe-"$REF_NAME" \
   --replicas 3 \
-  --network cms \
-  --publish 3000:3000 \
+  --network infra \
   --with-registry-auth \
   ghcr.io/"$USERNAME"/"$IMAGE":"$REF_NAME"; then
   echo "fe service error"
@@ -32,9 +31,8 @@ sleep 10
 if ! docker service create \
   --name proxy \
   --replicas 3 \
-  --network cms \
+  --network infra \
   --publish 80:80 \
-  --publish 443:443 \
   --mount type=bind,readonly=true,source="$SCRIPT_PATH"/nginx.conf,target=/etc/nginx/nginx.conf \
   nginx:stable; then
   echo "proxy service error"
