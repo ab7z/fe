@@ -1,11 +1,10 @@
 # syntax=docker/dockerfile:1
 
+FROM node:lts-alpine AS base
 ARG STAGE
 ARG CMS_URL_DEV
 ARG CMS_URL_REV
 ARG CMS_URL_MAIN
-
-FROM node:lts-alpine AS base
 RUN npm install -g pnpm@9.5.0
 
 # Install dependencies only when needed
