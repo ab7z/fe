@@ -1,7 +1,12 @@
 # syntax=docker/dockerfile:1
 
+ARG STAGE
+ARG CMS_URL_DEV
+ARG CMS_URL_REV
+ARG CMS_URL_MAIN
+
 FROM node:lts-alpine AS base
-RUN npm install -g pnpm@8.15.5
+RUN npm install -g pnpm@9.5.0
 
 # Install dependencies only when needed
 FROM base AS deps
@@ -52,6 +57,9 @@ EXPOSE 3000
 ENV PORT 3000
 # set hostname to localhost
 ENV HOSTNAME "0.0.0.0"
+
+# Add image to GitHub repository
+LABEL org.opencontainers.image.source="https://github.com/ab7z/fe"
 
 # server.js is created by next build from the standalone output
 # https://nextjs.org/docs/pages/api-reference/next-config-js/output

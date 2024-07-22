@@ -1,0 +1,8 @@
+.git
+.github
+.env.*
+.next
+.gitignore
+netlify.toml
+README.md
+node_modules
