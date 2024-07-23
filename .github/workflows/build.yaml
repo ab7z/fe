@@ -61,6 +61,8 @@ jobs:
           REF_NAME: ${{ github.ref_name }}
           TOKEN: ${{ secrets.GH_TOKEN }}
           IMAGE: ${{ vars.IMAGE }}
+          STAGE_USER: ${{ secrets.STAGE_USER }}
+          STAGE_PASS: ${{ secrets.STAGE_PASS }}
         with:
           host: ${{ secrets.HZ_HOST }}
           username: ${{ secrets.HZ_SSH_USERNAME }}
@@ -72,5 +74,7 @@ jobs:
             ACTOR,
             REF_NAME,
             TOKEN,
-            IMAGE
+            IMAGE,
+            STAGE_USER,
+            STAGE_PASS
           script: bash ./fe/ci/deployment.sh

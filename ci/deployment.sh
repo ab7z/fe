@@ -40,6 +40,8 @@ if ! docker service create \
   --network infra \
   --publish 80:80 \
   --publish 443:443 \
+  --env STAGE_PASS="$STAGE_PASS" \
+  --env STAGE_USER="$STAGE_USER" \
   --mount type=bind,readonly=true,source="$SCRIPT_PATH"/Caddyfile,target=/etc/caddy/Caddyfile \
   --mount type=volume,source=caddy_data,target=/data \
   caddy:2.8-alpine; then
