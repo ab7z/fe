@@ -10,8 +10,11 @@ Cleanup () {
 }
 
 echo "--------------------------------------------"
-echo "Start nginx proxy"
+echo "Start fe service"
 echo "--------------------------------------------"
+
+docker service rm fe-"$REF_NAME" || true
+sleep 10
 
 if ! docker service create \
   --name fe-"$REF_NAME" \
@@ -24,21 +27,6 @@ if ! docker service create \
   exit 1;
 fi
 
-docker service rm proxy || true
-sleep 10
-
-if ! docker service create \
-  --name proxy \
-  --replicas 3 \
-  --network infra \
-  --publish 80:80 \
-  --mount type=bind,readonly=true,source="$SCRIPT_PATH"/nginx.conf,target=/etc/nginx/nginx.conf \
-  nginx:stable; then
-  echo "proxy service error"
-  Cleanup
-  exit 1;
-fi
-
 echo "--------------------------------------------"
 echo "Start nginx proxy"
 echo "--------------------------------------------"
@@ -49,9 +37,8 @@ sleep 10
 if ! docker service create \
   --name proxy \
   --replicas 3 \
-  --network cms \
+  --network infra \
   --publish 80:80 \
-  --publish 443:443 \
   --mount type=bind,readonly=true,source="$SCRIPT_PATH"/nginx.conf,target=/etc/nginx/nginx.conf \
   nginx:stable; then
   echo "proxy service error"
