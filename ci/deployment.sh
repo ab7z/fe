@@ -39,7 +39,9 @@ if ! docker service create \
   --replicas 1 \
   --network infra \
   --publish 80:80 \
+  --publish 443:443 \
   --mount type=bind,readonly=true,source="$SCRIPT_PATH"/Caddyfile,target=/etc/caddy/Caddyfile \
+  --mount type=volume,source=caddy_data,target=/data \
   caddy:2.8-alpine; then
   echo "proxy service error"
   Cleanup
