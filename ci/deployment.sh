@@ -28,7 +28,7 @@ if ! docker service create \
 fi
 
 echo "--------------------------------------------"
-echo "Start nginx proxy"
+echo "Start caddy proxy server"
 echo "--------------------------------------------"
 
 docker service rm proxy || true
