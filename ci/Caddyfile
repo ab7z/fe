@@ -1,0 +1,15 @@
+@not-cms {
+	not path /cms/*
+}
+
+dev.bernstein.dev {
+	basic_auth @not-cms {
+		Bob $2a$14$Zkx19XLiW6VYouLHR5NmfOFU0z2GTNmpkT/5qqR7hx4IjWJPDhjvG
+	}
+	reverse_proxy fe-dev:3000
+
+	redir /cms /cms/
+	handle_path /cms/* {
+		reverse_proxy /cms/* cms-dev:8000
+	}
+}
