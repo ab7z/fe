@@ -10,7 +10,9 @@ const nextConfig = {
   images: {
     domains: ["localhost"],
   },
+  poweredByHeader: false,
   output: "standalone",
+  cleanDistDir: true,
 }
 
 module.exports = nextConfig
